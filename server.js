@@ -5,9 +5,9 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const NAVER_CLIENT_ID = process.env.NAVER_CLIENT_ID;
 const NAVER_CLIENT_SECRET = process.env.NAVER_CLIENT_SECRET;
-const ALLOWED_ORIGIN = process.env.ALLOWED_ORIGIN || '*';
 
-app.use(cors({ origin: ALLOWED_ORIGIN }));
+// 검색 결과만 전달하는 공개 프록시라 출처 제한 없이 열어둡니다.
+app.use(cors());
 
 function stripTags(s) {
   return String(s || '')
