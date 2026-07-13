@@ -153,7 +153,11 @@ app.post('/api/curator', requireAuth, async (req, res) => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           contents: [{ parts: [{ text: prompt }] }],
-          generationConfig: { temperature: 0.4, maxOutputTokens: 300 }
+          generationConfig: {
+            temperature: 0.4,
+            maxOutputTokens: 500,
+            thinkingConfig: { thinkingBudget: 0 }
+          }
         })
       }
     );
